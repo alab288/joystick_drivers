@@ -354,9 +354,8 @@ class decoder:
 class Diagnostics():
     def __init__(self):
         self.STATE_TEXTS_CHARGING = {
-                                0:"Charging",
-                                2:"Charging",
-                                3:"Not Charging"}
+                                0:"Charging", 
+                                1:"Not Charging"}
         self.STATE_TEXTS_CONNECTION = {
                                 18:"USB Connection",
                                 20:"Rumbling",
@@ -577,10 +576,10 @@ if __name__ == "__main__":
             else:
                 print "Ignoring parameter: '%s'"%arg
         # TODO: Check for actual HW permissions, not root itself. Issue #53
-        # Error message hinting to root in case of failure is implemented already
-#        if os.getuid() != 0:
-#            print >> sys.stderr, "ps3joy.py must be run as root."
-#            quit(1)
+        # If the user does not have HW permissions indicate that ps3joy must be run as root
+        if os.getuid() != 0:
+            print >> sys.stderr, "ps3joy.py must be run as root."
+            quit(1)
         if disable_bluetoothd:
             os.system("/etc/init.d/bluetooth stop > /dev/null 2>&1")
             time.sleep(1) # Give the socket time to be available.
