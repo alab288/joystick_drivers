@@ -19,8 +19,8 @@ Setting master bd_addr to 00:15:83:ed:3f:21
 
 ## Running the ps3joy nodes ## 
 The package should consists of the following nodes:  
-*ps3joy.py 
-*ps3joy_node.py 
+* ps3joy.py 
+* ps3joy_node.py 
  
 
 Running ps3joy_node.py will** require** being root to run if the user does not have 
@@ -148,7 +148,15 @@ rostopic echo joy
 ``` 
 You should see the input data dipslayed on your terminal. 
 
-## Shutting down the ps3 joystick ##
+## Recharging the PS3 joystick 
+1. Have an available USB port on a computer, and the computer must be on while the joystick is
+   charging. 
+
+2. Connect the PS3 joystick to a computer using an A to mini-B USB cable. 
+
+3. The LEDs on the joystick should blink at about 1Hz to indicate the the joystick is charging.
+
+## Shutting down the ps3 joystick
 There are two ways to turn of the ps3 joystick   
 1. Press and hold the pairing button on the joystick for approximately 10 seconds
  
